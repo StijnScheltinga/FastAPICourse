@@ -1,4 +1,4 @@
-from database import Base
+from ToDoApp.database import Base
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
 
 class Users(Base):
@@ -12,7 +12,7 @@ class Users(Base):
 	hashed_password = Column(String)
 	is_active = Column(String, default=False)
 	role = Column(String)
-
+	phone_number = Column(String)
 
 class Todos(Base):
 	__tablename__ = 'todos'
@@ -21,5 +21,5 @@ class Todos(Base):
 	title = Column(String)
 	description = Column(String)
 	priority = Column(Integer)
-	complete = Column(Boolean, default=False)
+	complete = Column(Boolean)
 	owner_id = Column(Integer, ForeignKey("users.id"))
